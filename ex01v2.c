@@ -1,17 +1,18 @@
-/* 
+/*
 1- Declare duas variáveis int e realize as operações de soma, subtração, multiplicação e divisão entre elas.
 */
 
 #include <stdio.h>
 
-int main() {
-    //variaveis
+int main()
+{
+    // variaveis
     int a, b;
-    int soma;
-    int sub;
-    int mult;
-    int div;
     int opcao;
+    float soma;
+    float sub;
+    float mult;
+    float div;
 
     printf("1- Soma\n");
     printf("2- Subtracao\n");
@@ -21,46 +22,65 @@ int main() {
     printf("Selecione uma das opcoes: ");
     scanf("%i", &opcao);
 
+    // processamento
+    soma = a + b;
+    sub = a - b;
+    mult = a * b;
+    div = a / b;
 
-
-   do { switch(opcao) {
-        case 1: 
-        printf("Digite um numero: ");
-        scanf("%i", &a);
-        printf("Digite mais um numero: ");
-        scanf("%i", &b);
-        printf("A soma dos numeros: A:%d e B:%d Soma:%d ", a, b, soma);
-        break;
+    do
+    {
+        switch (opcao)
+        {
+        case 1:
+            printf("Digite o primeiro numero: \n\n");
+            scanf("%i", &a);
+            printf("Digite o segundo numero: \n");
+            scanf("%i", &b);
+            soma = a + b;
+            printf("\nA soma dos numeros: A:%i + B:%i Soma:%f ", a, b, soma);
+            break;
         case 2:
-        printf("Digite um numero: ");
-        scanf("%i", &a);
-        printf("Digite mais um numero: ");
-        scanf("%i", &b);
-        printf("A soma dos numeros: A:%d e B:%d Subtracao:%d ", a, b, sub); 
-        break;
+            printf("Digite o primeiro numero\n: ");
+            scanf("%i", &a);
+            printf("Digite o segundo numero\n: ");
+            scanf("%i", &b);
+            sub = a - b;
+            printf("\nA subtracao dos numeros: A:%i - B=%i Subtracao:%f ", a, b, sub);
+            break;
         case 3:
-        printf("Digite um numero: ");
-        scanf("%i", &a);
-        printf("Digite mais um numero: ");
-        scanf("%i", &b);
-        printf("A soma dos numeros: A:%d e B:%d Mult:%d ", a, b, mult);
-        break;
-        case 4:
-        if (a || b == 0) {
-            printf("Erro divisao por zero");
-        }
-        printf("Digite um numero: ");
-        scanf("%i", &a);
-        printf("Digite mais um numero: ");
-        scanf("%i", &b);
-        printf("A soma dos numeros: A:%d e B:%d Divisao:%d ", a, b, div);
-        break;
-        case 5:
-        printf("Saindo...");
-        default:
-        printf("Numero incorreto, tente novamente");
-      
-    }  
-} while (opcao != 5);
+            printf("\nDigite o primeiro numero\n: ");
+            scanf("%i", &a);
+            printf("\nDigite o segundo numero: ");
+            scanf("%i", &b);
+            mult = a * b;
 
-}
+            printf("\nA multiplicacao dos numeros: A:%i X B:%i Mult:%f", a, b, mult);
+            break;
+        case 4:
+            printf("\nDigite o primeiro numero:\n ");
+            scanf("%i", &a);
+            printf("\nDigite o segundo numero: ");
+            scanf("%i", &b);
+            if (b == 0)
+            {
+                printf("\nErro divisao por zero\n");
+            }
+            else
+            {
+                div = (float)a / b;
+                printf("\nA divisao dos numeros: A:%i e B:%i Divisao:%f ", a, b, div);
+            }
+            break;
+        case 5:
+            printf("\nSaindo...\n");
+            break;
+        default:
+            printf("\nNumero incorreto, tente novamente\n");
+            break;
+        }
+
+    } while (opcao != 5);
+
+    return 0;
+}   
