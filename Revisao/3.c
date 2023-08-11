@@ -10,8 +10,9 @@ C)Valor do INSS
 D)Salário líquido. 
 */
 
+#include <stdio.h>
 int main () {
-    char nome[100];
+    char nome[100]; 
     float salario, inss;
 
     printf("Digite o nome do funcionário: ");

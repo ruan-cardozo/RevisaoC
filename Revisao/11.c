@@ -3,7 +3,7 @@
 0 e terminando em 50, mostrando os valores múltiplos de 8, o número da 
 ocorrência em cada exibição e quantas vezes o múltiplo ocorreu. 
 */
-
+#include <stdio.h>
 int main () {
     int a = 0, contador = 0;
 

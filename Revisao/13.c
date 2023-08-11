@@ -4,7 +4,7 @@ vale 1,25% ao mês, calcular a taxa equivalente no período de
 um ano. Se um valor de R$ 1.000,00 for aplicado com esta taxa, 
 qual será o valor final após um ano? 
 */
-
+#include <stdio.h>
 int main() {
     float taxa = 1.25, valor = 1000;
 

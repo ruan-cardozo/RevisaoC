@@ -9,9 +9,10 @@ C)Salário acima de R$ 1.500,00 – desconto de 9%
 
 D)O programa deve mostrar o salário em consideração e mostrar sua taxa de desconto, bem como o valor do desconto. 
 */
-
+#include <stdio.h>
 int main () {
-    char nome[100];
+    //variaveis 
+    char nome[100]; //para que serve o char? 
     float salario, inss, desconto;
 
     printf("Digite o nome do funcionário: ");
