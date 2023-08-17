@@ -1,13 +1,18 @@
-/* 
-5)Construa um programa para calcular a área e de um círculo, a área deve ser do tipo de ponteiro. 
-*/
+    /* 
+    5)Construa um programa para calcular a área e de um círculo, a área deve ser do tipo de ponteiro. 
+    */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 typedef struct {
     float raio;
-    float *area;
+    float area;  // Não é necessário um ponteiro para a área
 } Circulo;
 
 Circulo insercao(void);
@@ -22,7 +27,7 @@ Circulo insercao(void) {
 }
 
 void calcularArea(Circulo *circulo) {
-    *circulo->area = 3.14 * circulo->raio * circulo->raio;
+    circulo->area = M_PI * circulo->raio * circulo->raio;
 }
 
 int main(void) {
@@ -31,7 +36,7 @@ int main(void) {
     circulo = insercao(); // Chama a função para inserir os valores
     calcularArea(&circulo); // Chama a função para calcular a área
 
-    printf("Área: %.2f\n", *circulo.area);
+    printf("Área: %.5f\n", circulo.area);
     
     system("pause");
     
