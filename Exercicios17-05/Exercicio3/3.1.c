@@ -47,15 +47,7 @@ Part insert(void) {
     return(p);
 }
 
-void printParts(Part p[], int size) {
-    int i;
-    printf("CODIGO\t\tNOME\t\tCOR\t\tPESO\t\tPRECO\n\n");
-    for(i = 0; i < size; i++){
-        printf("%i\t\t%s\t%s\t\t%.1f\t\t%.1f\n", 
-        p[i].code, p[i].name, p[i].color, p[i].weight, p[i].price);
-    }
-    
-}
+
 
 
 

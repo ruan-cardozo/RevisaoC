@@ -13,7 +13,7 @@ depois imprima em tela.
 typedef struct {
     char raca[100];
     char cor[50];
-    char sexo[50];
+    char sexo;
     float peso;
 }Animal;
 
@@ -44,7 +44,7 @@ Animal insercao(void){
 
 void impressao(Animal a[]){
 	int i;
-	printf("RACA\t\t\tCOR\t\t\tSEXO\t\t\tPESO\n");
+	printf("RACA\t\t\tCOR\t\tSEXO\t\t\tPESO\n");
 	for(i=0;i<TAM;i++){
 		printf("%s\t\t%s\t\t%c\t\t%.1f\n", 
 		a[i].raca,a[i].cor,a[i].sexo,a[i].peso);
