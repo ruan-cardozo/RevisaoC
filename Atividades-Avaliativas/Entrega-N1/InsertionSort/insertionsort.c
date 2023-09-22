@@ -52,7 +52,7 @@ void geraNumero(int *vet, int op) {
     }
 }
 
-// Função ordenação bubble sort
+// Função ordenação insertion sort
 void insertionSort(int *vet) {
     int n, troca, i, aux, qtd_trocas, qtd_comparacoes;
     n = 1;
