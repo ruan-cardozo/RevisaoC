@@ -7,7 +7,7 @@ int main(void) {
         scanf("%i,",&x[i]); 
         fflush(stdin); 
     } 
-for (i = 1; i <= 4; i++) { 
+    for (i = 1; i <= 4; i++) { 
         eleito = x[i]; 
         j = i - 1; 
         while (j >= 0 && x[j] > eleito) { 

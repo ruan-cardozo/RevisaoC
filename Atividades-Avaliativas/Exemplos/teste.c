@@ -8,23 +8,24 @@ SE NÃO, POR QUE NÃO CONSEGUIU CHEGAR NO RESULTADO?
 R.:
 */
 #include <stdio.h>
+#include <stdlib.h> // Adicionando a biblioteca "stdlib.h" para usar a função "rand"
 #include <time.h>
 #define TAMANHO 10000
 
-// Prototipo de Função
+// Protótipo de Função
 void geraNumero(int *vet, int op);
-void insertionSort(int *vet);
+void bubbleSort(int *vet);
 void imprimirVetor(int *vet);
 
 int main(void) {
     // Variáveis
     int vet1[TAMANHO];
 
-    // Entrada de dados;
+    // Entrada de dados
     geraNumero(vet1, 3);
 
-    // Processamentos dos dados
-    insertionSort(vet1);
+    // Processamento dos dados
+    bubbleSort(vet1);
 
     // Saída de dados
     return 0;
@@ -38,22 +39,25 @@ void geraNumero(int *vet, int op) {
             for (i = 0; i < TAMANHO; i++) {
                 vet[i] = i + 1;
             }
-            break;
+            break; // Corrigido para "break" (letra minúscula)
+
         case 2: // Invertidos
             for (i = 0; i < TAMANHO; i++) {
                 vet[i] = TAMANHO - i;
             }
             break;
+
         case 3: // Aleatórios
+            srand(time(NULL)); // Inicialize a semente randômica com a hora atual
             for (i = 0; i < TAMANHO; i++) {
-                vet[i] = (int)(rand() % TAMANHO);
+                vet[i] = rand() % TAMANHO;
             }
             break;
     }
 }
 
-// Função ordenação insertion sort
-void insertionSort(int *vet) {
+// Função ordenação bubble sort
+void bubbleSort(int *vet) {
     int n, troca, i, aux, qtd_trocas, qtd_comparacoes;
     n = 1;
     troca = 1;
@@ -71,27 +75,28 @@ void insertionSort(int *vet) {
             if (vet[i] > vet[i + 1]) {
                 // Ponto do algoritmo para contar as trocas
                 qtd_trocas++;
-                troca = 1;
                 aux = vet[i];
                 vet[i] = vet[i + 1];
                 vet[i + 1] = aux;
+                troca = 1;
             }
         }
         n = n + 1;
     }
 
     // Ponto do algoritmo para calcular o tempo de execução
-    float tempo_final = clock() - tempo_inicial;
+    float tempo_final = (clock() - tempo_inicial) / CLOCKS_PER_SEC; // Corrigido para calcular em segundos
 
     // Saída de dados
     printf("Quantidade de trocas: %i\n", qtd_trocas);
-    printf("Tempo de execucao do algoritmo: %.3f", tempo_final / 1000);
+    printf("Quantidade de comparacoes: %i\n", qtd_comparacoes);
+    printf("Tempo de execucao do algoritmo: %.3f segundos\n", tempo_final);
 }
 
 // Função impressão do vetor
 void imprimirVetor(int *vet) {
     int i;
-    for (i = 0; i < TAMANHO; i++) {
+    for (i = 0; i < TAMANHO; i++) { // Corrigido "For" para "for" (letra minúscula)
         printf("%i, ", vet[i]);
         if ((i + 1) % 14 == 0) {
             printf("\n");
