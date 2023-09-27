@@ -12,7 +12,7 @@ R.:
 #include <time.h>
 #include<stdlib.h>
 
-#define TAMANHO 10
+#define TAMANHO 10000
 
 // Prototipo de Função
 void geraNumero(int *vet, int op);
@@ -24,7 +24,7 @@ int main (void){
 	int vet1[TAMANHO];
 
 // Entrada de dados;
-geraNumero(vet1,1);
+geraNumero(vet1,3);
 // printf("Desordenado: \n\n");
 // imprimirVetor(vet1);
 

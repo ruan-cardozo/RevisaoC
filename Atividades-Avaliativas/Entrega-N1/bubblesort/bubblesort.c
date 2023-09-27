@@ -10,24 +10,6 @@ void geraNumero(int *vet, int op);
 void bubbleSort(int *vet);
 void imprimirVetor(int *vet);
 
-int main (void){
-	// Variáveis
-	int vet1[TAMANHO];
-
-// Entrada de dados;
-geraNumero(vet1,1);
-// printf("Desordenado: \n\n");
-// imprimirVetor(vet1);
-
-// Processamentos dos dados
-bubbleSort(vet1);
-
-// Saída de dados
-// printf("\n\nOrdenado: \n\n");
-//imprimirVetor(vet1);
-return 0;
-}
-
 // Função geração de números
 void geraNumero(int *vet, int op) {
     int i, j;
@@ -49,7 +31,6 @@ void geraNumero(int *vet, int op) {
             }
             break;
     }
-
 }
 
 // Função ordenação bubble sort
@@ -99,4 +80,22 @@ void imprimirVetor(int *vet){
 			printf("\n");
 		}
 	}
+}
+
+int main (void){
+	// Variáveis
+	int vet1[TAMANHO];
+
+// Entrada de dados;
+geraNumero(vet1,3);
+// printf("Desordenado: \n\n");
+// imprimirVetor(vet1);
+
+// Processamentos dos dados
+bubbleSort(vet1);
+
+// Saída de dados
+// printf("\n\nOrdenado: \n\n");
+//imprimirVetor(vet1);
+return 0;
 }

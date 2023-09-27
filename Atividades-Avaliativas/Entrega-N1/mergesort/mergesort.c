@@ -8,43 +8,6 @@ void geraNumero(int *vet, int op);
 void merge(int arr[], int left, int middle, int right, int *qtd_trocas, int *qtd_comparacoes);
 void mergeSort(int arr[], int left, int right, int *qtd_trocas, int *qtd_comparacoes);
 
-int main() {
-    int arr[TAMANHO];
-    int arr_size = sizeof(arr) / sizeof(arr[0]);
-    int qtd_trocas = 0;
-    int qtd_comparacoes = 0;
-
-    /*printf("Array original: \n");
-    for (int i = 0; i < arr_size; i++) {
-        printf("%d ", arr[i]);
-    }*/
-    
-    //Chama a função para gerar o array de acordo com a necessidade 1-Ordenado, 2-Invertido e 3-Aleatório
-    geraNumero(arr, 2);
-    
-	// Ponto do algoritmo para iniciar o calculo do tempo de execução
-	float tempo_inicial = clock();
-
-    // Chama a função Merge Sort
-    mergeSort(arr, 0, arr_size - 1, &qtd_trocas, &qtd_comparacoes);
-
-    /*printf("\nArray ordenado: \n");
-    for (int i = 0; i < arr_size; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");*/
-    
-    // Ponto do algoritmo para calcular o tempo de execução
-	float tempo_final = clock() - tempo_inicial;
-    
-    printf("Algoritmo de ordenacao Merge Sort: \n");
-	printf("\nQuantidade de comparacoes: %i\n", qtd_comparacoes);
-    printf("Quantidade de trocas: %i\n", qtd_trocas);
-    printf("Tempo de execucao do algoritmo: %.3f\n", tempo_final/1000);
-
-    return 0;
-}
-
 // Função geração de números
 void geraNumero(int *vet, int op) {
     int i, j;
@@ -139,3 +102,39 @@ void mergeSort(int arr[], int left, int right, int *qtd_trocas, int *qtd_compara
     }
 }
 
+int main() {
+    int arr[TAMANHO];
+    int arr_size = sizeof(arr) / sizeof(arr[0]);
+    int qtd_trocas = 0;
+    int qtd_comparacoes = 0;
+
+    /*printf("Array original: \n");
+    for (int i = 0; i < arr_size; i++) {
+        printf("%d ", arr[i]);
+    }*/
+    
+    //Chama a função para gerar o array de acordo com a necessidade 1-Ordenado, 2-Invertido e 3-Aleatório
+    geraNumero(arr, 3);
+    
+	// Ponto do algoritmo para iniciar o calculo do tempo de execução
+	float tempo_inicial = clock();
+
+    // Chama a função Merge Sort
+    mergeSort(arr, 0, arr_size - 1, &qtd_trocas, &qtd_comparacoes);
+
+    /*printf("\nArray ordenado: \n");
+    for (int i = 0; i < arr_size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");*/
+    
+    // Ponto do algoritmo para calcular o tempo de execução
+	float tempo_final = clock() - tempo_inicial;
+    
+    printf("Algoritmo de ordenacao Merge Sort: \n");
+	printf("\nQuantidade de comparacoes: %i\n", qtd_comparacoes);
+    printf("Quantidade de trocas: %i\n", qtd_trocas);
+    printf("Tempo de execucao do algoritmo: %.3f\n", tempo_final/1000);
+
+    return 0;
+}
