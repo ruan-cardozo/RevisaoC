@@ -37,6 +37,43 @@ int particao(int x[], int p, int r, int *qtd_comparacoes, int *qtd_trocas) {
 void quicksort(int arr[], int p, int r, int *qtd_comparacoes, int *qtd_trocas) {
     // ...
 }
+Claro, vou explicar a função `quicksort` e seus parâmetros em detalhes:
+
+```c
+void quicksort(int arr[], int p, int r, int *qtd_comparacoes, int *qtd_trocas) {
+    int q;
+    if (p < r) {
+        q = particao(arr, p, r, qtd_comparacoes, qtd_trocas);
+        quicksort(arr, p, q, qtd_comparacoes, qtd_trocas);
+        quicksort(arr, q + 1, r, qtd_comparacoes, qtd_trocas);
+    }
+}
+```
+
+A função `quicksort` é a implementação do algoritmo de ordenação Quick Sort. Vamos explicar seus parâmetros e como ela funciona:
+
+1. `arr[]`: Este é o vetor de inteiros que será ordenado. A função trabalha com esse vetor para reorganizar seus elementos em ordem crescente.
+
+2. `p`: Este é o índice de início do subvetor a ser ordenado. No início da chamada recursiva, ele representa a posição do primeiro elemento do subvetor.
+
+3. `r`: Este é o índice de fim do subvetor a ser ordenado. No início da chamada recursiva, ele representa a posição do último elemento do subvetor.
+
+4. `qtd_comparacoes`: É um ponteiro para uma variável que mantém o número de comparações feitas durante o processo de ordenação. A função `quicksort` atualiza essa variável sempre que compara dois elementos do vetor.
+
+5. `qtd_trocas`: É um ponteiro para uma variável que mantém o número de trocas (ou swaps) feitas durante o processo de ordenação. A função `quicksort` atualiza essa variável quando troca dois elementos do vetor para ordená-lo.
+
+A função `quicksort` é recursiva e é a parte central do algoritmo Quick Sort. Ela faz o seguinte:
+
+- Primeiro, verifica se `p` (índice de início) é menor que `r` (índice de fim). Isso é importante para garantir que há mais de um elemento no subvetor a ser ordenado. Se `p` não for menor que `r`, isso significa que não há nada a ser ordenado, e a função retorna imediatamente.
+
+- Se `p` for menor que `r`, a função chama a função `particao` para encontrar um pivô e particionar o subvetor em duas partes: uma com elementos menores ou iguais ao pivô e outra com elementos maiores que o pivô.
+
+- Em seguida, a função chama a si mesma recursivamente duas vezes:
+    1. Para ordenar a primeira parte (elementos menores ou iguais ao pivô), chamando `quicksort(arr, p, q, qtd_comparacoes, qtd_trocas)`, onde `q` é o índice retornado pela função `particao`.
+    2. Para ordenar a segunda parte (elementos maiores que o pivô), chamando `quicksort(arr, q + 1, r, qtd_comparacoes, qtd_trocas)`.
+
+O processo de divisão e ordenação recursiva continua até que todo o vetor esteja ordenado. O Quick Sort é eficiente porque divide o vetor em partes menores e ordena essas partes de forma independente. A escolha do pivô e o rearranjo dos elementos em torno dele são as chaves para o funcionamento eficaz do algoritmo.
+
 ```
 - A função `quicksort` é a função principal que implementa o algoritmo Quick Sort. Ela recebe o vetor, os índices de início `p` e fim `r` do subvetor a ser ordenado, e os ponteiros para contadores de comparações e trocas. Ela chama a função `particao` para dividir o vetor e recursivamente ordena as duas metades.
 
@@ -61,6 +98,25 @@ int main() {
 
 ```c
     quicksort(arr, 0, arr_size - 1, &qtd_comparacoes, &qtd_trocas);
+    Claro, vou explicar com mais detalhes a linha que contém a chamada para a função `quicksort`:
+
+```c
+quicksort(arr, 0, arr_size - 1, &qtd_comparacoes, &qtd_trocas);
+```
+
+Esta linha é responsável por iniciar o processo de ordenação do vetor `arr` usando o algoritmo Quick Sort. Aqui está uma explicação detalhada dos argumentos passados para a função `quicksort`:
+
+1. `arr`: Isso é o vetor que você deseja ordenar. No contexto do código, `arr` foi declarado na função `main` e contém os elementos que precisam ser ordenados.
+
+2. `0`: Este é o índice de início do subvetor a ser ordenado. O Quick Sort é um algoritmo de ordenação recursivo que divide o vetor em subvetores menores. O índice `0` indica que o processo de ordenação começa a partir do primeiro elemento do vetor.
+
+3. `arr_size - 1`: Este é o índice de fim do subvetor a ser ordenado. `arr_size` representa o tamanho total do vetor, e subtrair `1` garante que o subvetor inclua o último elemento do vetor. Isso significa que o processo de ordenação ocorre até o último elemento do vetor.
+
+4. `&qtd_comparacoes`: Este é um ponteiro para uma variável que mantém o número de comparações realizadas durante o processo de ordenação. A função `quicksort` atualiza essa variável à medida que faz comparações entre elementos no vetor.
+
+5. `&qtd_trocas`: Similar ao anterior, este é um ponteiro para uma variável que mantém o número de trocas (ou swaps) feitas durante o processo de ordenação. A função `quicksort` atualiza essa variável quando troca elementos no vetor para ordená-lo.
+
+Resumindo, essa linha está chamando a função `quicksort` para ordenar o vetor `arr` do primeiro elemento (índice 0) até o último elemento (índice `arr_size - 1`), enquanto rastreia o número de comparações e trocas feitas durante a ordenação. O Quick Sort é um algoritmo eficiente de ordenação que divide e conquista, rearranjando os elementos do vetor de acordo com um pivô, e ele é chamado recursivamente para classificar subvetores menores até que todo o vetor esteja ordenado.
 ```
 - Chama a função `quicksort` para ordenar o vetor `arr`.
 
