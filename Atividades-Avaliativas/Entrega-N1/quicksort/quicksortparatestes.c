@@ -1,9 +1,61 @@
+/*
+PROCESSO AVALIATIVO N3 – ESTRUTURA DE DADOS
+EQUIPE
+NOMES: João David, Ruan Cardozo, Thiago Saraiva.
+
+CONSEGUIU CHEGAR NO RESULTADO?
+R: Sim
+SE NÃO, POR QUE NÃO CONSEGUIU CHEGAR NO RESULTADO?
+R.:
+*/
+
 #include <stdio.h>
-#include <stdlib.h>
+#include<stdlib.h>
 #include <time.h>
+#include<math.h>
 
 #define TAMANHO 10000
 
+// Prototipo de Função
+void geraNumero(int *vet, int op);
+void quicksort(int *vet, int ini, int fim, int *qtd_trocas, int *qtd_comparacoes);
+int partition(int *vet, int ini, int fim, int *qtd_trocas, int *qtd_comparacoes);
+void imprimirVetor(int *vet);
+
+int main (void){
+	// Variáveis
+	int vet1[TAMANHO];	
+    int qtd_trocas = 0;
+    int qtd_comparacoes = 0;
+
+//Chama a função para gerar o array de acordo com a necessidade 1-Ordenado, 2-Invertido e 3-Aleatório
+geraNumero(vet1, 1);
+
+// printf("Desordenado: \n\n");
+// imprimirVetor(vet1);
+
+// Ponto do algoritmo para iniciar o calculo do tempo de execução
+	float tempo_inicial = clock();
+
+// Processamentos dos dados
+quicksort(vet1, 0, TAMANHO - 1, &qtd_trocas, &qtd_comparacoes);
+
+// Ponto do algoritmo para calcular o tempo de execução
+	float tempo_final = clock() - tempo_inicial;
+
+// Saída de dados
+    printf("Algoritmo de ordenacao Quick Sort: \n");
+	printf("\nQuantidade de comparacoes: %i\n", qtd_comparacoes);
+    printf("Quantidade de trocas: %i\n", qtd_trocas);
+    printf("Tempo de execucao do algoritmo: %.3f", tempo_final/1000);
+
+// Saída de dados
+// printf("\n\nOrdenado: \n\n");
+//imprimirVetor(vet1);
+return 0;
+}
+
+// Função geração de números
 void geraNumero(int *vet, int op) {
     int i, j;
 
@@ -13,9 +65,9 @@ void geraNumero(int *vet, int op) {
                 vet[i] = i + 1;
             }
             break ;
-        case 2: // Invertidos
+        case 2: //Invertidos
             for (i = 0; i < TAMANHO; i++) {
-               vet[i] = TAMANHO - i;
+               vet[i] = TAMANHO-i;
             }
             break;
         case 3: // Aleatórios
@@ -24,75 +76,47 @@ void geraNumero(int *vet, int op) {
             }
             break;
     }
+
 }
 
-void troca(int arr[], int i, int j, int *qtd_trocas) {
-    int aux;
-    aux = arr[i];
-    arr[i] = arr[j];
-    arr[j] = aux;
-    (*qtd_trocas)++;
+// Função ordenação bubble sort
+void quicksort(int *vet, int ini, int fim, int *qtd_trocas, int *qtd_comparacoes) {
+    int meio;
+
+    if (ini < fim) {
+        meio = partition(vet, ini, fim, qtd_trocas, qtd_comparacoes);	
+        quicksort(vet, ini, meio, qtd_trocas, qtd_comparacoes);
+        quicksort(vet, meio + 1, fim, qtd_trocas, qtd_comparacoes);
+    }
 }
 
-int particao(int x[], int p, int r, int *qtd_comparacoes, int *qtd_trocas) {
-    int pivo, i, j;
-    pivo = x[(p + r) / 2];
-    i = p - 1;
-    j = r + 1;
-    while (1) {
-        do {
-            j--;
-            (*qtd_comparacoes)++;
-        } while (x[j] > pivo);
-        do {
-            i++;
-            (*qtd_comparacoes)++;
-        } while (x[i] < pivo);
-        if (i < j) {
-            troca(x, i, j, qtd_trocas);
-        } else {
-            return j;
+int partition(int *vet, int ini, int fim, int *qtd_trocas, int *qtd_comparacoes) {
+    int pivo, topo, i;
+    pivo = vet[ini];
+    topo = ini;
+
+    for (i = ini + 1; i <= fim; i++) {
+        if (vet[i] < pivo) {
+		    vet[topo] = vet[i];		    
+            vet[i] = vet[topo + 1];            
+            topo++;
+            (*qtd_trocas)++;            
         }
+        (*qtd_comparacoes)++;        
     }
+    
+    vet[topo] = pivo;
+    
+    return topo;
 }
 
-void quicksort(int arr[], int p, int r, int *qtd_comparacoes, int *qtd_trocas) {
-    int q;
-    if (p < r) {
-        q = particao(arr, p, r, qtd_comparacoes, qtd_trocas);
-        quicksort(arr, p, q, qtd_comparacoes, qtd_trocas);
-        quicksort(arr, q + 1, r, qtd_comparacoes, qtd_trocas);
-    }
-}
-
-int main() {
-    int arr[TAMANHO];
-    int arr_size = sizeof(arr) / sizeof(arr[0]);
-    int qtd_trocas = 0;
-    int qtd_comparacoes = 0;
-
-    // Chama a função para gerar os números de acordo com a opção escolhida
-    geraNumero(arr, 3);
-
-    // Ponto do algoritmo para iniciar o cálculo do tempo de execução
-    float tempo_inicial = clock();
-
-    // Ordenando o vetor de forma crescente
-    quicksort(arr, 0, arr_size - 1, &qtd_comparacoes, &qtd_trocas);
-
-    // Mostrando o vetor ordenado
-    // printf("\n\nEm ordem:\n\n");
-    // for (i = 0; i < 10; i++) {
-    //     printf(" %d", x[i]);
-    // }
-
-    // Ponto do algoritmo para calcular o tempo de execução
-    float tempo_final = clock() - tempo_inicial;
-
-    printf("Algoritmo de ordenacao Quick Sort: \n");
-    printf("\nQuantidade de comparacoes: %d\n", qtd_comparacoes);
-    printf("Quantidade de trocas: %d\n", qtd_trocas);
-    printf("Tempo de execucao do algoritmo: %.3f\n", tempo_final / 1000);
-
-    return 0;
+// Função impressão do vetor
+void imprimirVetor(int *vet){
+	int i;
+	for (i = 0; i < TAMANHO; i++){
+		printf("%i, ", vet[i]);
+		if ((i+1)%14 == 0){
+			printf("\n");
+		}
+	}
 }
