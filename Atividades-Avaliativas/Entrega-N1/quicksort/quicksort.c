@@ -8,6 +8,17 @@ SE NÃO, POR QUE NÃO CONSEGUIU CHEGAR NO RESULTADO?
 R.:
 */
 
+/*
+PROCESSO AVALIATIVO N3 – ESTRUTURA DE DADOS
+EQUIPE
+NOMES: João David, Ruan Cardozo, Thiago Saraiva.
+
+CONSEGUIU CHEGAR NO RESULTADO?
+R: Sim
+SE NÃO, POR QUE NÃO CONSEGUIU CHEGAR NO RESULTADO?
+R.:
+*/
+
 #include <stdio.h>
 #include<stdlib.h>
 #include <time.h>

@@ -1,9 +1,10 @@
 /*
 PROCESSO AVALIATIVO N3 – ESTRUTURA DE DADOS
 EQUIPE
-NOMES:
+NOMES: João David, Ruan Cardozo, Thiago Saraiva.
+
 CONSEGUIU CHEGAR NO RESULTADO?
-R:
+R: Sim
 SE NÃO, POR QUE NÃO CONSEGUIU CHEGAR NO RESULTADO?
 R.:
 */
@@ -18,24 +19,6 @@ R.:
 void geraNumero(int *vet, int op);
 void insertSort(int *vet);
 void imprimirVetor(int *vet);
-
-int main (void){
-	// Variáveis
-	int vet1[TAMANHO];
-
-// Entrada de dados;
-geraNumero(vet1,3);
-// printf("Desordenado: \n\n");
-// imprimirVetor(vet1);
-
-// Processamentos dos dados
-insertSort(vet1);
-
-// Saída de dados
-// printf("\n\nOrdenado: \n\n");
-//imprimirVetor(vet1);
-return 0;
-}
 
 // Função geração de números
 void geraNumero(int *vet, int op) {
@@ -58,7 +41,6 @@ void geraNumero(int *vet, int op) {
             }
             break;
     }
-
 }
 
 // Função ordenação insert sort
@@ -106,4 +88,22 @@ void imprimirVetor(int *vet){
 			printf("\n");
 		}
 	}
+}
+
+int main (void){
+	// Variáveis
+	int vet1[TAMANHO];
+
+// Entrada de dados;
+geraNumero(vet1,3);
+// printf("Desordenado: \n\n");
+// imprimirVetor(vet1);
+
+// Processamentos dos dados
+insertSort(vet1);
+
+// Saída de dados
+// printf("\n\nOrdenado: \n\n");
+//imprimirVetor(vet1);
+return 0;
 }
