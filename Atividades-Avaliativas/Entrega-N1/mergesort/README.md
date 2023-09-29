@@ -1,5 +1,3 @@
-Claro, vou explicar o código linha por linha:
-
 1. `#include <stdio.h>`: Isso inclui a biblioteca de entrada/saída padrão em C, que é necessária para funções como `printf` e `scanf`.
 
 2. `#include <stdlib.h>`: Isso inclui a biblioteca padrão de C, que é necessária para funções como `malloc` e `rand`.

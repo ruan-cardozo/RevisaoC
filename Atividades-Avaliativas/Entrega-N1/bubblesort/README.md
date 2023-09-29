@@ -1,5 +1,3 @@
-Claro, vou explicar o código linha por linha, detalhadamente:
-
 ```c
 #include <stdio.h>
 #include <stdlib.h>

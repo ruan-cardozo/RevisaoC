@@ -1,5 +1,3 @@
-Claro, vou explicar o código linha por linha, fornecendo detalhes sobre cada expressão e seu propósito:
-
 ```c
 /*
 PROCESSO AVALIATIVO N3 – ESTRUTURA DE DADOS
@@ -141,3 +139,4 @@ int main (void){
     // printf("\n\nOrdenado: \n\n");
     //imprimirVetor(vet1);
     return 0;
+}
