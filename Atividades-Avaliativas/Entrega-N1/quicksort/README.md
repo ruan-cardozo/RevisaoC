@@ -1,5 +1,4 @@
-Este código é um programa em C que implementa o algoritmo de ordenação Quick Sort e mede o número de comparações, trocas e o tempo de execução para ordenar um vetor de inteiros. Vou explicar o código linha por linha:
-
+Este código é um programa em C que implementa o algoritmo de ordenação Quick Sort e mede o número de comparações, trocas e o tempo de execução para ordenar um vetor de inteiros.
 ```c
 #include <stdio.h>
 #include <stdlib.h>

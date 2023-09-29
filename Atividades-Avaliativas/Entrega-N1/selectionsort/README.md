@@ -1,5 +1,3 @@
-Claro, vou explicar o código linha por linha:
-
 ```c
 /*
 PROCESSO AVALIATIVO N3 – ESTRUTURA DE DADOS
