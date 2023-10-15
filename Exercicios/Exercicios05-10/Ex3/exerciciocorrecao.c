@@ -1,13 +1,4 @@
 /*
-3. Faça um programa que cadastre 10 números reais, 
-ordene-os usando o método selection sort e em seguida 
-encontre o maior número e quantas vezes ele apareceu no vetor. 
-R.: */
-
-#include <stdio.h>
-#include <stdlib.h>
-
-/*
 3. Faça um programa que cadastre 10 números reais, ordene-os usando o 
 método selection sort e em seguida encontre o maior número e quantas 
 vezes ele apareceu no vetor.
