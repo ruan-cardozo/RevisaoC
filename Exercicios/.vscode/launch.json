@@ -5,7 +5,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/Exercicios-prova-n1/a.out",
+      "program": "${workspaceFolder}/Exercicios05-10/Ex4/a.out",
       "args": [],
       "stopAtEntry": true,
       "cwd": "${fileDirname}",
