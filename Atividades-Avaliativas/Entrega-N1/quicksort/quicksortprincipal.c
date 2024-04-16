@@ -13,10 +13,10 @@ R.:
 #include <stdlib.h>
 #include <time.h>
 
-#define TAMANHO 10000
+#define TAMANHO 11
 
 void geraNumero(int *vet, int op) {
-    int i, j;
+    int i;
 
     switch (op) {
         case 1: // Ordenados
